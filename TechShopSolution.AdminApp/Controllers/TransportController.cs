@@ -128,7 +128,7 @@ namespace TechShopSolution.AdminApp.Controllers
             {
                 order_id = id,
                 to_address = receive_address,
-                from_address = "12 Đường 41, Phường 10, Quận 6, TP Hồ Chí Minh",
+                from_address = "Thủ Đức, TP Hồ Chí Minh",
                 cod_price = null
             };
             return View(request);
