@@ -16,12 +16,11 @@
 - FluentValidation.AspNetCore
 - Microsoft.AspNetCore.Authentication.JwtBearer
 - And mores....
-## Youtube tutorial
-- Video list: https://www.youtube.com/playlist?list=PLRhlTlpDUWsyN_FiVQrDWMtHix_E2A_UD
+
 ## Install tutorial
 ## How to configure and run
-- Clone code from Github: git clone https://github.com/thisthuanyo/TechShopSolution.git
-- Open solution TechShopSolution.sln in Visual Studio 2019
+- Clone code from Github: git clone https://github.com/CaoLamBaoKhanh/GraduationProject.git
+- Open solution TechShopSolution.sln in Visual Studio 2022
 - Set startup project is TechShopSolution.Data
 - Change connection string in Appsetting.json in TechShopSolution.Data project
 - Open Tools --> Nuget Package Manager --> Package Manager Console in Visual Studio
@@ -34,7 +33,3 @@
 ## Template Used 
 - Admin template: https://startbootstrap.com/template/sb-admin
 - Portal template: https://www.free-css.com/free-css-templates/page194/bootstrap-shop
-## My Productions 
-- Admin App: https://admin.techshopvn.xyz
-- Portal App: https://techshopvn.xyz
-- API: https://api.techshopvn.xyz/swagger
