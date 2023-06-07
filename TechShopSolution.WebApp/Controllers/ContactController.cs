@@ -44,13 +44,13 @@ namespace TechShopSolution.WebApp.Controllers
             }
             string contentMailClient = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\mail-template", "FeedbackSendCustomer.html"));
             string contentMailAdmin = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\mail-template", "FeedbackSendAdmin.html"));
-            contentMailClient = contentMailClient.Replace("{{cus_name}}", request.name);
+            contentMailClient = contentMailClient.Replace("{{cus_email}}", request.email);
             contentMailAdmin = contentMailAdmin.Replace("{{cus_name}}", request.name);
             contentMailAdmin = contentMailAdmin.Replace("{{cus_phone}}", request.phone);
             contentMailAdmin = contentMailAdmin.Replace("{{cus_email}}", request.email);
             TempData["result"] = "Gửi phản feedback thành công, chúng tôi sẽ tiếp nhận sớm nhất có thể.";
             await SendMail(request.email, "Gửi phản hồi thành công", contentMailClient);
-            await SendMail( "thuanneuwu2@gmail.com", "Bạn có một phản hồi mới", contentMailAdmin);
+            await SendMail( "khanhjoget@gmail.com", "Bạn có một phản hồi mới", contentMailAdmin);
 
             return RedirectToAction("Index");
         }
@@ -60,14 +60,14 @@ namespace TechShopSolution.WebApp.Controllers
             message.BodyEncoding = System.Text.Encoding.UTF8;
             message.SubjectEncoding = System.Text.Encoding.UTF8;
             message.IsBodyHtml = true;
-            message.From = new MailAddress("Techshop Việt Nam <admin@techshopvn.xyz>");
+            message.From = new MailAddress("baokhanh <admin@techshop.id.vn>");
             message.To.Add(new MailAddress(_to));
             message.Subject = _subject;
             message.Body = _body;
 
-            using var smtpClient = new SmtpClient("mail.techshopvn.xyz", 587);
+            using var smtpClient = new SmtpClient("mail.techshop.id.vn", 587);
             smtpClient.EnableSsl = false;
-            smtpClient.Credentials = new NetworkCredential("admin@techshopvn.xyz", "THANHTHUAn123");
+            smtpClient.Credentials = new NetworkCredential("admin@techshop.id.vn", "baokhanh");
 
             await smtpClient.SendMailAsync(message);
         }

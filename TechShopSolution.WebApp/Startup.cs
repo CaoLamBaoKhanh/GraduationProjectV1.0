@@ -65,7 +65,11 @@ namespace TechShopSolution.WebApp
                 builder.AddRazorRuntimeCompilation();
             }
 #endif
-    }
+            /*services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+            });*/
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
