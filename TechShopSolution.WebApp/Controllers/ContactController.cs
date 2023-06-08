@@ -50,7 +50,7 @@ namespace TechShopSolution.WebApp.Controllers
             contentMailAdmin = contentMailAdmin.Replace("{{cus_email}}", request.email);
             TempData["result"] = "Gửi phản feedback thành công, chúng tôi sẽ tiếp nhận sớm nhất có thể.";
             await SendMail(request.email, "Gửi phản hồi thành công", contentMailClient);
-            await SendMail( "khanhjoget@gmail.com", "Bạn có một phản hồi mới", contentMailAdmin);
+            await SendMail("khanhcaolambao@gmail.com", "Bạn có một phản hồi mới", contentMailAdmin);
 
             return RedirectToAction("Index");
         }
@@ -67,7 +67,7 @@ namespace TechShopSolution.WebApp.Controllers
 
             using var smtpClient = new SmtpClient("mail.techshop.id.vn", 587);
             smtpClient.EnableSsl = false;
-            smtpClient.Credentials = new NetworkCredential("admin@techshop.id.vn", "baokhanh");
+            smtpClient.Credentials = new NetworkCredential("admin@techshop.id.vn", "Kh@nh2710");
 
             await smtpClient.SendMailAsync(message);
         }

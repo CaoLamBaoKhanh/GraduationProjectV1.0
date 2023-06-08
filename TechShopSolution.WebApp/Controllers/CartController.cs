@@ -261,10 +261,10 @@ namespace TechShopSolution.WebApp.Controllers
             {
                 TempData["result"] = "Đặt hàng thành công. Cảm ơn quý khách đã mua hàng của chúng tôi.";
                 HttpContext.Session.Remove(SystemConstants.CartSession);
-                /*var contentMailClient = sendMailToClient(int.Parse(result.ResultObject), request);
+                var contentMailClient = sendMailToClient(int.Parse(result.ResultObject), request);
                 var contentMailAdmin = sendMailToAdmin(int.Parse(result.ResultObject), request, customer.ResultObject);
                 await SendMail(customer.ResultObject.email, "Đặt hàng thành công - Đơn hàng #" + result.ResultObject, contentMailClient);
-                await SendMail("thuanneuwu@gmail.com", "Đơn hàng mới #" + result.ResultObject, contentMailAdmin);*/
+                await SendMail("khanhcaolambao@gmail.com", "Đơn hàng mới #" + result.ResultObject, contentMailAdmin);
                 return RedirectToAction("Index","Home");
             }
             TempData["error"] = result.Message;
@@ -532,7 +532,7 @@ namespace TechShopSolution.WebApp.Controllers
                 return null;
             }
         }
-        /*public string sendMailToClient(int orderID, CheckoutRequest request)
+        public string sendMailToClient(int orderID, CheckoutRequest request)
         {
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             string contentMail = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\mail-template", "neworder.html"));
@@ -544,8 +544,8 @@ namespace TechShopSolution.WebApp.Controllers
             var final_total = request.Order.total - request.Order.discount + request.Order.transport_fee;
             contentMail = contentMail.Replace("{{final_total}}", String.Format(info, "{0:N0}", final_total));
             return contentMail;
-        }*/
-        /*public string sendMailToAdmin(int orderID, CheckoutRequest request, CustomerViewModel cutomer)
+        }
+        public string sendMailToAdmin(int orderID, CheckoutRequest request, CustomerViewModel cutomer)
         {
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             string contentMail = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\mail-template", "AdminOrderConfirm.html"));
@@ -562,23 +562,23 @@ namespace TechShopSolution.WebApp.Controllers
             var final_total = request.Order.total - request.Order.discount + request.Order.transport_fee;
             contentMail = contentMail.Replace("{{final_total}}", String.Format(info, "{0:N0}", final_total));
             return contentMail;
-        }*/
-        /*public async Task SendMail(string _to, string _subject, string _body)
+        }
+        public async Task SendMail(string _to, string _subject, string _body)
         {
             MailMessage message = new MailMessage();
             message.BodyEncoding = System.Text.Encoding.UTF8;
             message.SubjectEncoding = System.Text.Encoding.UTF8;
             message.IsBodyHtml = true;
-            message.From = new MailAddress("Techshop Việt Nam <khanhjoget@gamil.com>");
+            message.From = new MailAddress("Techshop Việt Nam <admin@techshop.id.vn>");
             message.To.Add(new MailAddress(_to));
             message.Subject = _subject;
             message.Body = _body;
 
-            using var smtpClient = new SmtpClient("smtp", 587);
+            using var smtpClient = new SmtpClient("mail.techshop.id.vn", 587);
             smtpClient.EnableSsl = false;
-            smtpClient.Credentials = new NetworkCredential("khanhjoget@gamil.com", "khanhCao123");
+            smtpClient.Credentials = new NetworkCredential("admin@techshop.id.vn", "Kh@nh2710");
 
             await smtpClient.SendMailAsync(message);
-        }*/
+        }
     }
 }

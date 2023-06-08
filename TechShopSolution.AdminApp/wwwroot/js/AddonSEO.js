@@ -29,7 +29,7 @@
 $('#txtName').on("keyup change", function () {
     var content = to_slug($('#txtName').val());
     $('#txtSlug').val(content);
-    $('.collection-seo--preview-url').text("http://techshopvn.xyz/san-pham/" + content);
+    $('.collection-seo--preview-url').text("http://techshop.id.vn/san-pham/" + content);
 })
 
 $('#txtMetaTitle').on("keyup change", function () {
@@ -68,5 +68,5 @@ $('#txtMetaDesc').on("keyup change", function () {
 
 $('#txtSlug').on("keyup change", function () {
     var content = $('#txtSlug').val();
-    $('.collection-seo--preview-url').text("http://techshopvn.xyz/san-pham/" + content);
+    $('.collection-seo--preview-url').text("http://techshop.id.vn/san-pham/" + content);
 });
